@@ -8,28 +8,8 @@
 
 <style>
 
-  
+  /* slider */
 
-.backBtn{
-position:absolute;
-top:20px;
-left:20px;
-background:white;
-color:#ff4d6d;
-}
-
-/* slider */
-
-.memorySlider{
-
-width:100%;
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:center;
-align-items:center;
-
-}
 
 .memorySlide{
 display:none; justify-content:center; align-items:center; gap:60px; flex-wrap:wrap; animation:magicFade 1.5s;
@@ -64,13 +44,11 @@ transition:transform .6s;
 transform:scale(1.15);
 }
 
-#gallerySection{
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
+#gallerySection{ 
+  position:fixed; top:0; left:0; width:100%; height:100%; background:#ff758c; display:flex;
+  justify-content:center; align-items:center; flex-direction:column;
 }
+@keyframes fadePhoto{ from{opacity:0;} to{opacity:1;} }
 
 /* MAGIC FADE */
 
@@ -85,7 +63,18 @@ flex-direction:column;
   transform:scale(1);
   }
 }
+
+.backBtn{ position:absolute; top:20px; left:20px; background:white; color:#ff4d6d; }
+
+.memorySlider  {  
+  width:90%; max-width:1000px;  } 
   
+.memoryPhoto  { 
+  display:none; width:100%; max-height:80vh; object-fit:contain; border-radius:20px;
+             box-shadow:0 20px 40px rgba(0,0,0,.5); animation:fadePhoto 1.5s; }
+
+ @keyframes sparkleUp{
+   0%{transform:translateY(0);opacity:1;} 100%{transform:translateY(-100vh);opacity:0;} } 
   
 body{
 margin:0;
@@ -178,11 +167,6 @@ transform:scale(1.2);
 
 /* MEMORY SLIDER */
 
-.memorySlider{
-max-width:900px;
-margin:auto;
-position:relative;
-}
 
 .memorySlide{
 display:none;
@@ -312,57 +296,30 @@ I love you forever ❤️
 </div>
 
 </div>
+  <h2>Our Memories 📸</h2>
 
-<h2>Our Memories 📸</h2>
-
-<button id="openGallery">View Memories</button>
-
-
-<!-- MEMORY SLIDES -->
-
-<div id="gallerySection" style="display:none">
-
-<button id="backTimeline" class="backBtn">⬅ Back</button>
-
-<div class="memorySlider">
-
-<div class="memorySlide">
-<img src="img1.jpeg">
-<img src="img2.jpeg">
-<img src="img3.jpeg">
-</div>
-
-<div class="memorySlide">
-<img src="img4.jpeg">
-<img src="img5.jpeg">
-<img src="img6.jpeg">
-<img src="img7.jpeg">
-</div>
-
-<div class="memorySlide">
-<img src="img8.jpeg">
-<img src="img9.jpeg">
-<img src="img10.jpeg">
-</div>
-
-<div class="memorySlide">
-<img src="img11.jpeg">
-<img src="img12.jpeg">
-<img src="img13.jpeg">
-<img src="img14.jpeg">
-</div>
-
-<div class="memorySlide">
-<img src="img15.jpeg">
-<img src="img16.jpeg">
-<img src="img17.jpeg">
-</div>
-
-</div>
-
-</div>
-
-
+  <button id="openGallery">View Memories</button> 
+  
+  <!-- MEMORY SLIDES -->
+  
+  <div id="gallerySection" style="display:none">
+  
+  <button id="backTimeline" class="backBtn">⬅ Back</button>
+  
+  <div class="memorySlider">
+  
+  <img class="memoryPhoto" src="img1.jpeg">
+  <img class="memoryPhoto" src="img2.jpeg">
+  <img class="memoryPhoto" src="img3.jpeg">
+  <img class="memoryPhoto" src="img4.jpeg">
+  <img class="memoryPhoto" src="img5.jpeg">
+  <img class="memoryPhoto" src="img6.jpeg">
+  <img class="memoryPhoto" src="img7.jpeg">
+  <img class="memoryPhoto" src="img8.jpeg">
+  
+  </div>
+  
+  </div>
 </div>
 
 
@@ -411,15 +368,20 @@ setInterval(updateCounter,1000);
 /* OPEN MEMORIES */
 
 $("#openGallery").click(function(){
-    $(".timeline").hide();
-    $(".counter").hide();
-    $("h2").hide();
-    $("#openGallery").hide();
-    
-    $("#gallerySection").fadeIn();
-    memoryIndex = 0;
-    startSlider();
+
+$(".timeline").hide();
+$(".counter").hide();
+$("h2").hide();
+$("#openGallery").hide();
+
+$("#gallerySection").fadeIn();
+
+photoIndex = 0;
+
+startPhotoSlider();
+
 });
+
 
 /* BACK */
 $("#backTimeline").click(function(){
@@ -432,28 +394,53 @@ $("h2").fadeIn();
 $("#openGallery").fadeIn();
 
 });
-  
+
+function createSparkle(){
+
+var hearts=["💖","💕","💗","💓"];
+
+var sparkle=$("<div>"+hearts[Math.floor(Math.random()*hearts.length)]+"</div>");
+
+sparkle.css({
+position:"fixed",
+left:Math.random()*100+"%",
+top:"100%",
+fontSize:"20px",
+animation:"sparkleUp 6s linear"
+});
+
+$("body").append(sparkle);
+
+setTimeout(function(){
+sparkle.remove();
+},6000);
+
+}
+
+setInterval(createSparkle,400);
+ 
 /* SLIDER */
 
-var memoryIndex = 0;
+var photoIndex = 0;
 
-function startSlider(){
+function startPhotoSlider(){
 
-var slides = $(".memorySlide");
+var photos = $(".memoryPhoto");
 
-slides.hide();
+photos.hide();
 
-memoryIndex++;
+photoIndex++;
 
-if(memoryIndex > slides.length){
-memoryIndex = 1;
+if(photoIndex > photos.length){
+photoIndex = 1;
 }
 
-slides.eq(memoryIndex-1).css("display","flex");
+photos.eq(photoIndex-1).show();
 
-setTimeout(startSlider,3000);
+setTimeout(startPhotoSlider,3000);
 
 }
+
 
 
 });
