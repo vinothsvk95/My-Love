@@ -17,7 +17,7 @@ text-align:center;
 overflow-x:hidden;
 }
 
-/* falling hearts */
+/* floating hearts */
 
 .heart{
 position:fixed;
@@ -37,13 +37,13 @@ animation:fall linear infinite;
 position:fixed;
 width:120px;
 border-radius:10px;
-animation:float 15s linear infinite;
+animation:float 18s linear infinite;
 opacity:.8;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh) rotate(0deg);}
-100%{transform:translateY(-120vh) rotate(360deg);}
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120vh);}
 }
 
 /* hero page */
@@ -119,26 +119,6 @@ transition:.4s;
 transform:scale(1.2);
 }
 
-.event-title{
-font-size:24px;
-font-weight:bold;
-}
-
-.event-date{
-font-size:18px;
-margin-top:5px;
-}
-
-.event-desc{
-font-size:16px;
-margin-top:8px;
-}
-
-.icon{
-font-size:40px;
-margin-left:10px;
-}
-
 /* card colors */
 
 .card-wedding{background:linear-gradient(135deg,#FFD700,#FFC107);color:#000;}
@@ -165,15 +145,6 @@ border-radius:15px;
 box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 
-.fade{
-animation:fadeEffect 1.5s;
-}
-
-@keyframes fadeEffect{
-from{opacity:.4}
-to{opacity:1}
-}
-
 </style>
 </head>
 
@@ -181,10 +152,9 @@ to{opacity:1}
 
 <!-- floating memory frames -->
 
-<img src="memory1.jpg" class="floating" style="left:5%;">
-<img src="memory2.jpg" class="floating" style="left:80%;animation-duration:18s;">
-<img src="memory3.jpg" class="floating" style="left:40%;animation-duration:20s;">
-
+<img src="memory1.jpg" class="floating" style="left:10%;">
+<img src="memory2.jpg" class="floating" style="left:80%;">
+<img src="memory3.jpg" class="floating" style="left:50%;">
 
 <!-- FIRST PAGE -->
 
@@ -213,7 +183,6 @@ I love you forever ❤️
 
 </div>
 
-
 <!-- MAIN PAGE -->
 
 <div id="mainPage">
@@ -221,73 +190,71 @@ I love you forever ❤️
 <h1>Our Love Story 💖</h1>
 
 <div class="counter">
-❤️ Together for  
-<span id="days"></span> days  
-<span id="hours"></span> hours  
+❤️ Together for
+<span id="days"></span> days
+<span id="hours"></span> hours
 <span id="minutes"></span> minutes
 </div>
-
 
 <div class="timeline">
 
 <div class="timeline-item card-wedding">
 <img src="test1.jpg">
 <div>
-<div class="event-title">Our Wedding Day <span class="icon">💍</span></div>
-<div class="event-date">07-03-2024</div>
-<div class="event-desc">The best day of my life.</div>
+<h3>Our Wedding Day 💍</h3>
+<p>07-03-2024</p>
+<p>The best day of my life.</p>
 </div>
 </div>
 
 <div class="timeline-item card-birthday">
 <img src="test2.jpg">
 <div>
-<div class="event-title">Your Birthday <span class="icon">🎂</span></div>
-<div class="event-date">09-04-2024</div>
-<div class="event-desc">Our first birthday celebration after marriage.</div>
+<h3>Your Birthday 🎂</h3>
+<p>09-04-2024</p>
+<p>Our first birthday celebration after marriage.</p>
 </div>
 </div>
 
 <div class="timeline-item card-babyshower">
 <img src="test3.jpg">
 <div>
-<div class="event-title">Baby Shower <span class="icon">🤰</span></div>
-<div class="event-date">20-10-2024</div>
-<div class="event-desc">Waiting for our little princess.</div>
+<h3>Baby Shower 🤰</h3>
+<p>20-10-2024</p>
+<p>Waiting for our little princess.</p>
 </div>
 </div>
 
 <div class="timeline-item card-baby">
 <img src="test4.jpg">
 <div>
-<div class="event-title">Viyona Born <span class="icon">👶</span></div>
-<div class="event-date">17-11-2024</div>
-<div class="event-desc">The day our angel arrived.</div>
+<h3>Viyona Born 👶</h3>
+<p>17-11-2024</p>
+<p>The day our angel arrived.</p>
 </div>
 </div>
 
 <div class="timeline-item card-ann1">
 <img src="test5.jpg">
 <div>
-<div class="event-title">First Anniversary <span class="icon">❤️</span></div>
-<div class="event-date">07-03-2025</div>
-<div class="event-desc">One year of love.</div>
+<h3>First Anniversary ❤️</h3>
+<p>07-03-2025</p>
+<p>One year of love.</p>
 </div>
 </div>
 
 <div class="timeline-item card-ann2">
 <img src="test6.jpg">
 <div>
-<div class="event-title">Second Anniversary <span class="icon">💖</span></div>
-<div class="event-date">07-03-2026</div>
-<div class="event-desc">Two amazing years together.</div>
+<h3>Second Anniversary 💖</h3>
+<p>07-03-2026</p>
+<p>Two amazing years together.</p>
 </div>
 </div>
 
 </div>
 
-
-<h2 style="margin-top:60px;">Our Memories 📸</h2>
+<h2>Our Memories 📸</h2>
 
 <button id="openGallery">View Memories</button>
 
@@ -297,39 +264,42 @@ I love you forever ❤️
 
 <div class="slideshow-container">
 
-<div class="slide fade"><img src="memory1.jpg"></div>
-<div class="slide fade"><img src="memory2.jpg"></div>
-<div class="slide fade"><img src="memory3.jpg"></div>
-<div class="slide fade"><img src="memory4.jpg"></div>
-<div class="slide fade"><img src="memory5.jpg"></div>
+<div class="slide"><img src="memory1.jpg"></div>
+<div class="slide"><img src="memory2.jpg"></div>
+<div class="slide"><img src="memory3.jpg"></div>
+<div class="slide"><img src="memory4.jpg"></div>
+<div class="slide"><img src="memory5.jpg"></div>
 
 </div>
 
 </div>
 
 </div>
-
 
 <script>
+
+$(document).ready(function(){
 
 /* open love story */
 
 $("#openLove").click(function(){
+
 $(".hero").fadeOut(800,function(){
+
 $("#mainPage").fadeIn(1000);
+
 });
+
 });
 
 
-/* hearts animation */
+/* floating hearts */
 
 var hearts=["💕","💖","💗","💓","💞","💘"];
 
 function createHeart(){
 
-var randomHeart=hearts[Math.floor(Math.random()*hearts.length)];
-
-var heart=$("<div class='heart'>"+randomHeart+"</div>");
+var heart=$("<div class='heart'>"+hearts[Math.floor(Math.random()*hearts.length)]+"</div>");
 
 heart.css({
 left:Math.random()*100+"%",
@@ -352,14 +322,19 @@ var startDate=new Date("March 7, 2024");
 function updateCounter(){
 
 var now=new Date();
+
 var diff=now-startDate;
 
 var days=Math.floor(diff/(1000*60*60*24));
+
 var hours=Math.floor((diff/(1000*60*60))%24);
+
 var minutes=Math.floor((diff/(1000*60))%60);
 
 $("#days").text(days);
+
 $("#hours").text(hours);
+
 $("#minutes").text(minutes);
 
 }
@@ -367,7 +342,7 @@ $("#minutes").text(minutes);
 setInterval(updateCounter,1000);
 
 
-/* open memories */
+/* open gallery */
 
 $("#openGallery").click(function(){
 
@@ -409,33 +384,11 @@ if(slideIndex>slides.length){slideIndex=1}
 
 slides.eq(slideIndex-1).show();
 
-createSlideHearts();
-
 setTimeout(showSlides,3000);
 
 }
 
-
-/* heart particles when slide changes */
-
-function createSlideHearts(){
-
-for(let i=0;i<8;i++){
-
-var heart=$("<div class='heart'>💖</div>");
-
-heart.css({
-left:Math.random()*100+"%",
-animationDuration:"3s"
 });
-
-$("body").append(heart);
-
-setTimeout(function(){heart.remove();},3000);
-
-}
-
-}
 
 </script>
 
