@@ -35,10 +35,6 @@ cursor:pointer;
 font-weight:bold;
 }
 
-button:hover{
-background:#ffe6ec;
-}
-
 #mainPage{
 display:none;
 padding:40px;
@@ -74,15 +70,34 @@ object-fit:cover;
 border-radius:12px;
 }
 
-.date{
-font-size:20px;
+.event-title{
+font-size:24px;
 font-weight:bold;
-color:#fff;
 }
 
-.event{
+.event-date{
 font-size:18px;
+margin-top:5px;
 }
+
+.event-desc{
+font-size:16px;
+margin-top:8px;
+opacity:0.9;
+}
+
+.icon{
+font-size:40px;
+margin-left:10px;
+}
+
+/* different colors */
+
+.wedding{color:#ffd700;}
+.birthday{color:#00e5ff;}
+.baby{color:#a8ff60;}
+.ann1{color:#ffea00;}
+.ann2{color:#ffccff;}
 
 @media(max-width:700px){
 .timeline-item{
@@ -95,8 +110,6 @@ flex-direction:column;
 
 <body>
 
-<!-- FIRST PAGE -->
-
 <div class="hero">
 <h1>Happy Anniversary My Love ❤️</h1>
 <p>Click below to see our beautiful journey</p>
@@ -104,69 +117,110 @@ flex-direction:column;
 </div>
 
 
-<!-- SECOND PAGE -->
-
 <div id="mainPage">
 
 <h1>Our Love Story 💖</h1>
 
 <div class="message">
 My dear wife,<br><br>
-
-From the moment we got married, my life became more beautiful.<br>
-Every smile, every memory, every moment with you means the world to me.<br>
-
-Thank you for being my partner, my happiness, and the best mother to our daughter.<br>
-
+From the day we got married, my life became brighter and happier.<br>
+Every memory with you is priceless and beautiful.<br>
+Thank you for giving me the most wonderful family.<br>
 I will always love you forever ❤️
 </div>
 
 
 <div class="timeline">
 
+
 <div class="timeline-item">
 <img src="test1.jpg">
 <div>
-<div class="date">07-03-2024</div>
-<div class="event">Our Beautiful Wedding Day 💍</div>
+<div class="event-title wedding">
+Our Beautiful Wedding Day
+<span class="icon">💍</span>
+</div>
+
+<div class="event-date">07-03-2024</div>
+
+<div class="event-desc">
+The best and most unforgettable day of my life when you became my wife.
 </div>
 </div>
+</div>
+
 
 
 <div class="timeline-item">
 <img src="test2.jpg">
 <div>
-<div class="date">09-04-2024</div>
-<div class="event">My Wife's First Birthday After Marriage 🎂</div>
+<div class="event-title birthday">
+My Wife's First Birthday After Marriage
+<span class="icon">🎂</span>
+</div>
+
+<div class="event-date">09-04-2024</div>
+
+<div class="event-desc">
+Celebrating your birthday together as husband and wife made it extra special.
 </div>
 </div>
+</div>
+
 
 
 <div class="timeline-item">
 <img src="test3.jpg">
 <div>
-<div class="date">17-11-2024</div>
-<div class="event">Our Princess Was Born 👶 – Viyona 💕</div>
+<div class="event-title baby">
+Our Princess Was Born – Viyona
+<span class="icon">👶</span>
+</div>
+
+<div class="event-date">17-11-2024</div>
+
+<div class="event-desc">
+The day our little angel entered our lives and made our world complete.
 </div>
 </div>
+</div>
+
 
 
 <div class="timeline-item">
 <img src="test4.jpg">
 <div>
-<div class="date">07-03-2025</div>
-<div class="event">Our First Anniversary ❤️</div>
+<div class="event-title ann1">
+Our First Anniversary
+<span class="icon">❤️</span>
+</div>
+
+<div class="event-date">07-03-2025</div>
+
+<div class="event-desc">
+One year of love, laughter, and beautiful memories together.
 </div>
 </div>
+</div>
+
 
 
 <div class="timeline-item">
 <img src="test5.jpg">
 <div>
-<div class="date">07-03-2026</div>
-<div class="event">Our Second Anniversary 💖</div>
+<div class="event-title ann2">
+Our Second Anniversary
+<span class="icon">💖</span>
+</div>
+
+<div class="event-date">07-03-2026</div>
+
+<div class="event-desc">
+Two amazing years together and a lifetime more to come.
 </div>
 </div>
+</div>
+
 
 </div>
 
