@@ -22,7 +22,7 @@ overflow-x:hidden;
 .heart{
 position:fixed;
 top:-10px;
-font-size:24px;
+font-size:22px;
 animation:fall linear infinite;
 }
 
@@ -31,7 +31,22 @@ animation:fall linear infinite;
 100%{transform:translateY(100vh);opacity:0;}
 }
 
-/* first page */
+/* floating memory frames */
+
+.floating{
+position:fixed;
+width:120px;
+border-radius:10px;
+animation:float 15s linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh) rotate(0deg);}
+100%{transform:translateY(-120vh) rotate(360deg);}
+}
+
+/* hero page */
 
 .hero{
 height:100vh;
@@ -39,10 +54,18 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+padding:20px;
+}
+
+.hero-message{
+max-width:700px;
+font-size:20px;
+line-height:1.6;
+margin-bottom:30px;
 }
 
 button{
-padding:15px 35px;
+padding:14px 30px;
 font-size:18px;
 border:none;
 border-radius:30px;
@@ -50,21 +73,22 @@ background:white;
 color:#ff4d6d;
 cursor:pointer;
 font-weight:bold;
+margin:10px;
 }
+
+/* main page */
 
 #mainPage{
 display:none;
 padding:40px;
 }
 
-/* message */
+/* counter */
 
-.message{
+.counter{
 font-size:22px;
-max-width:700px;
-margin:auto;
-margin-bottom:50px;
-line-height:1.6;
+margin-bottom:30px;
+font-weight:bold;
 }
 
 /* timeline */
@@ -88,6 +112,11 @@ width:160px;
 height:160px;
 object-fit:cover;
 border-radius:12px;
+transition:.4s;
+}
+
+.timeline img:hover{
+transform:scale(1.2);
 }
 
 .event-title{
@@ -110,7 +139,7 @@ font-size:40px;
 margin-left:10px;
 }
 
-/* Occasion card colors */
+/* card colors */
 
 .card-wedding{
 background:linear-gradient(135deg,#FFD700,#FFC107);
@@ -139,10 +168,34 @@ background:linear-gradient(135deg,#ff416c,#ff4b2b);
 background:linear-gradient(135deg,#8e2de2,#4a00e0);
 }
 
-@media(max-width:700px){
-.timeline-item{
-flex-direction:column;
+/* gallery */
+
+.slideshow-container{
+max-width:700px;
+margin:auto;
 }
+
+.slide{
+display:none;
+}
+
+.slide img{
+width:100%;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.fade{
+animation:fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect{
+from{opacity:.4}
+to{opacity:1}
+}
+
+@media(max-width:700px){
+.timeline-item{flex-direction:column;}
 }
 
 </style>
@@ -150,12 +203,38 @@ flex-direction:column;
 
 <body>
 
+<!-- floating frames -->
+
+<img src="memory1.jpg" class="floating" style="left:5%;">
+<img src="memory2.jpg" class="floating" style="left:80%;animation-duration:18s;">
+<img src="memory3.jpg" class="floating" style="left:40%;animation-duration:20s;">
+
+
 <!-- FIRST PAGE -->
 
 <div class="hero">
-<h1>Happy Anniversary My Love ❤️</h1>
-<p>Click below to see our beautiful journey</p>
+
+<h1>Happy Anniversary ❤️</h1>
+
+<div class="hero-message">
+
+Dear Vinitha,<br><br>
+
+You are the most beautiful thing that has happened in my life.  
+Without you, I cannot imagine my life.  
+
+Sometimes I may forget to take care of you the way you deserve,  
+but please know that I will always be there for you —  
+to support you, love you, and fulfill your happiness and dreams.  
+
+Thank you for being my wife and giving me the most wonderful family.  
+
+I love you forever ❤️
+
+</div>
+
 <button id="openLove">Click My Love</button>
+
 </div>
 
 
@@ -165,132 +244,102 @@ flex-direction:column;
 
 <h1>Our Love Story 💖</h1>
 
-<div class="message">
-My dear wife,<br><br>
-
-From the day we got married, my life became brighter and happier.<br>
-Every memory with you is priceless and beautiful.<br>
-
-Thank you for giving me the most wonderful family and our little angel Viyona.<br>
-
-I love you forever ❤️
+<div class="counter">
+❤️ Together for  
+<span id="days"></span> days  
+<span id="hours"></span> hours  
+<span id="minutes"></span> minutes
 </div>
 
 
 <div class="timeline">
 
-<!-- Wedding -->
-
 <div class="timeline-item card-wedding">
 <img src="test1.jpg">
 <div>
-<div class="event-title">
-Our Beautiful Wedding Day <span class="icon">💍</span>
-</div>
+<div class="event-title">Our Wedding Day <span class="icon">💍</span></div>
 <div class="event-date">07-03-2024</div>
-<div class="event-desc">
-The best and most unforgettable day of my life when you became my wife.
+<div class="event-desc">The best day of my life.</div>
 </div>
 </div>
-</div>
-
-
-<!-- Birthday -->
 
 <div class="timeline-item card-birthday">
 <img src="test2.jpg">
 <div>
-<div class="event-title">
-My Wife's First Birthday After Marriage <span class="icon">🎂</span>
-</div>
+<div class="event-title">Your Birthday <span class="icon">🎂</span></div>
 <div class="event-date">09-04-2024</div>
-<div class="event-desc">
-Celebrating your birthday together as husband and wife made it extra special.
+<div class="event-desc">Our first birthday celebration after marriage.</div>
 </div>
 </div>
-</div>
-
-
-<!-- Baby Shower -->
 
 <div class="timeline-item card-babyshower">
 <img src="test3.jpg">
 <div>
-<div class="event-title">
-Baby Shower Celebration <span class="icon">🤰</span>
-</div>
+<div class="event-title">Baby Shower <span class="icon">🤰</span></div>
 <div class="event-date">20-10-2024</div>
-<div class="event-desc">
-A beautiful celebration waiting for our little princess to arrive.
+<div class="event-desc">Waiting for our little princess.</div>
 </div>
 </div>
-</div>
-
-
-<!-- Baby Born -->
 
 <div class="timeline-item card-baby">
 <img src="test4.jpg">
 <div>
-<div class="event-title">
-Our Princess Was Born – Viyona <span class="icon">👶</span>
-</div>
+<div class="event-title">Viyona Born <span class="icon">👶</span></div>
 <div class="event-date">17-11-2024</div>
-<div class="event-desc">
-The day our little angel entered our lives and made our world complete.
+<div class="event-desc">The day our angel arrived.</div>
 </div>
 </div>
-</div>
-
-
-<!-- First Anniversary -->
 
 <div class="timeline-item card-ann1">
 <img src="test5.jpg">
 <div>
-<div class="event-title">
-Our First Anniversary <span class="icon">❤️</span>
-</div>
+<div class="event-title">First Anniversary <span class="icon">❤️</span></div>
 <div class="event-date">07-03-2025</div>
-<div class="event-desc">
-One year of love, laughter, and beautiful memories together.
+<div class="event-desc">One year of love.</div>
 </div>
 </div>
-</div>
-
-
-<!-- Second Anniversary -->
 
 <div class="timeline-item card-ann2">
 <img src="test6.jpg">
 <div>
-<div class="event-title">
-Our Second Anniversary <span class="icon">💖</span>
-</div>
+<div class="event-title">Second Anniversary <span class="icon">💖</span></div>
 <div class="event-date">07-03-2026</div>
-<div class="event-desc">
-Two amazing years together and a lifetime more to come.
-</div>
+<div class="event-desc">Two amazing years together.</div>
 </div>
 </div>
 
+</div>
+
+
+<h2 style="margin-top:60px;">Our Memories 📸</h2>
+
+<button id="openGallery">View Memories</button>
+
+<div id="gallerySection" style="display:none">
+
+<div class="slideshow-container">
+
+<div class="slide fade"><img src="memory1.jpg"></div>
+<div class="slide fade"><img src="memory2.jpg"></div>
+<div class="slide fade"><img src="memory3.jpg"></div>
+<div class="slide fade"><img src="memory4.jpg"></div>
+<div class="slide fade"><img src="memory5.jpg"></div>
 
 </div>
+
+</div>
+
 </div>
 
 
 <script>
 
-/* open love page */
+/* open main page */
 
 $("#openLove").click(function(){
-
 $(".hero").fadeOut(800,function(){
-
 $("#mainPage").fadeIn(1000);
-
 });
-
 });
 
 
@@ -307,15 +356,90 @@ animationDuration:(Math.random()*3+3)+"s"
 
 $("body").append(heart);
 
-setTimeout(function(){
-heart.remove();
-},6000);
+setTimeout(function(){heart.remove();},6000);
 
 }
 
 setInterval(createHeart,300);
 
+
+/* love counter */
+
+var startDate=new Date("March 7, 2024");
+
+function updateCounter(){
+
+var now=new Date();
+var diff=now-startDate;
+
+var days=Math.floor(diff/(1000*60*60*24));
+var hours=Math.floor((diff/(1000*60*60))%24);
+var minutes=Math.floor((diff/(1000*60))%60);
+
+$("#days").text(days);
+$("#hours").text(hours);
+$("#minutes").text(minutes);
+
+}
+
+setInterval(updateCounter,1000);
+
+
+/* slideshow */
+
+var slideIndex=0;
+
+$("#openGallery").click(function(){
+
+$("#gallerySection").fadeIn();
+
+showSlides();
+
+});
+
+
+function showSlides(){
+
+var slides=$(".slide");
+
+slides.hide();
+
+slideIndex++;
+
+if(slideIndex>slides.length){slideIndex=1}
+
+slides.eq(slideIndex-1).show();
+
+createSlideHearts();
+
+setTimeout(showSlides,4000);
+
+}
+
+
+/* hearts when slide changes */
+
+function createSlideHearts(){
+
+for(let i=0;i<10;i++){
+
+var heart=$("<div class='heart'>💖</div>");
+
+heart.css({
+left:Math.random()*100+"%",
+animationDuration:"3s"
+});
+
+$("body").append(heart);
+
+setTimeout(function(){heart.remove();},3000);
+
+}
+
+}
+
 </script>
 
 </body>
 </html>
+
